@@ -24,6 +24,8 @@ namespace onTime
         {
             InitializeComponent();
 
+            HttpClient = new HttpClient();
+
             var nameHelper = new AssemblyName(Assembly.GetExecutingAssembly().FullName);
             var appVersion = nameHelper.Version.ToString();
             
@@ -37,6 +39,13 @@ namespace onTime
 
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
+        }
+
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            LinesListView.ItemsSource = await Lines.GetLines();
+
+            base.OnNavigatedTo(e);
         }
 
         // Sample code for building a localized ApplicationBar

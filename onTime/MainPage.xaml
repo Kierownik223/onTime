@@ -16,11 +16,11 @@
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <phone:Pivot Title="ONTIME">
             <phone:PivotItem Header="lines">
-                <phone:LongListSelector x:Name="LinesListView">
+                <phone:LongListSelector x:Name="LinesListView" LayoutMode="Grid" GridCellSize="145,145" Margin="10,0,-10,0">
                     <phone:LongListSelector.ItemTemplate>
                         <DataTemplate>
-                            <Grid>
-                                <TextBlock Text="{Binding name}"/>
+                            <Grid Margin="0,0,9.5,9.5" Background="{StaticResource PhoneAccentBrush}">
+                                <TextBlock Text="{Binding Name}" VerticalAlignment="Bottom" Margin="5,0,0,5" FontSize="18" FontFamily="Segoe WP"/>
                             </Grid>
                         </DataTemplate>
                     </phone:LongListSelector.ItemTemplate>
@@ -31,7 +31,7 @@
                     <phone:LongListSelector.ItemTemplate>
                         <DataTemplate>
                             <Grid>
-                                <TextBlock Text="{Binding name}"/>
+                                <TextBlock Text="{Binding Name}"/>
                             </Grid>
                         </DataTemplate>
                     </phone:LongListSelector.ItemTemplate>
