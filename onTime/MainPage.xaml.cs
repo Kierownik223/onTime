@@ -8,15 +8,32 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using onTime.Resources;
+using System.Net.Http;
+using Microsoft.Phone.Info;
+using System.Reflection;
+using System.Net.Http.Headers;
 
 namespace onTime
 {
     public partial class MainPage : PhoneApplicationPage
     {
-        // Constructor
+        public HttpClient HttpClient;
+        public static MainPage Current;
+
         public MainPage()
         {
             InitializeComponent();
+
+            var nameHelper = new AssemblyName(Assembly.GetExecutingAssembly().FullName);
+            var appVersion = nameHelper.Version.ToString();
+            
+            HttpClient.DefaultRequestHeaders.Add("User-Agent", $"onTime/{appVersion} ({DeviceStatus.DeviceManufacturer} {DeviceStatus.DeviceName}; Windows Phone {Environment.OSVersion.Version}; https://git.marmak.net.pl/Kierownik223/onTime)");
+            HttpClient.DefaultRequestHeaders.CacheControl = new CacheControlHeaderValue
+            {
+                NoCache = true
+            };
+
+            Current = this;
 
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
