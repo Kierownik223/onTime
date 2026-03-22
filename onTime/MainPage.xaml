@@ -6,6 +6,7 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -19,7 +20,7 @@
                 <phone:LongListSelector x:Name="LinesListView" LayoutMode="Grid" GridCellSize="145,145" Margin="10,0,-10,0">
                     <phone:LongListSelector.ItemTemplate>
                         <DataTemplate>
-                            <Grid Margin="0,0,9.5,9.5" Background="{StaticResource PhoneAccentBrush}">
+                            <Grid toolkit:TiltEffect.IsTiltEnabled="True" Margin="0,0,9.5,9.5" Background="{StaticResource PhoneAccentBrush}">
                                 <TextBlock Text="{Binding Name}" VerticalAlignment="Bottom" Margin="5,0,0,5" FontSize="18" FontFamily="Segoe WP"/>
                             </Grid>
                         </DataTemplate>
