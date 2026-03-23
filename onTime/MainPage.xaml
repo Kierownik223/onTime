@@ -17,7 +17,7 @@
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <phone:Pivot Title="ONTIME">
             <phone:PivotItem Header="lines">
-                <phone:LongListSelector x:Name="LinesListView" LayoutMode="Grid" GridCellSize="145,145" Margin="10,0,-10,0">
+                <phone:LongListSelector x:Name="LinesListView" LayoutMode="Grid" GridCellSize="145,145" Margin="10,0,-10,0" SelectionChanged="LinesListView_SelectionChanged">
                     <phone:LongListSelector.ItemTemplate>
                         <DataTemplate>
                             <Grid toolkit:TiltEffect.IsTiltEnabled="True" Margin="0,0,9.5,9.5" Background="{StaticResource PhoneAccentBrush}">

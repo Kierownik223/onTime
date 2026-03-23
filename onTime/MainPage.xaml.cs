@@ -48,6 +48,19 @@ namespace onTime
             base.OnNavigatedTo(e);
         }
 
+        private void LinesListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                Line selectedLine = ((LongListSelector)sender).SelectedItem as Line;
+
+                NavigationService.Navigate(new Uri($"/DirectionPage.xaml?line_id={selectedLine.Id}&line_name={selectedLine.Name}", UriKind.RelativeOrAbsolute));
+            } catch
+            {
+
+            }
+        }
+
         // Sample code for building a localized ApplicationBar
         //private void BuildLocalizedApplicationBar()
         //{
