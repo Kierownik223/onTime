@@ -41,5 +41,19 @@ namespace onTime
 
             base.OnNavigatedTo(e);
         }
+
+        private void ChangeDirectionButton_Click(object sender, EventArgs e)
+        {
+            if (OppositeDirection != null)
+            {
+                Direction current = CurrentDirection;
+                CurrentDirection = OppositeDirection;
+                OppositeDirection = current;
+
+                LastStop.Text = CurrentDirection.StopPoints[CurrentDirection.StopPoints.Count - 1].Name;
+
+                StopsListView.ItemsSource = CurrentDirection.StopPoints;
+            }
+        }
     }
 }
