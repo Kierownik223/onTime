@@ -94,6 +94,7 @@ namespace onTime
         // Code to execute on Unhandled Exceptions
         private void Application_UnhandledException(object sender, ApplicationUnhandledExceptionEventArgs e)
         {
+            MessageBox.Show(e.ExceptionObject.StackTrace, e.ExceptionObject.Message, MessageBoxButton.OK);
             if (Debugger.IsAttached)
             {
                 // An unhandled exception has occurred; break into the debugger

@@ -55,5 +55,12 @@ namespace onTime
                 StopsListView.ItemsSource = CurrentDirection.StopPoints;
             }
         }
+
+        private void StopsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            StopPoint selectedStopPoint = ((LongListSelector)sender).SelectedItem as StopPoint;
+
+            NavigationService.Navigate(new Uri($"/StopPage.xaml?symbol={selectedStopPoint.Symbol}&name={selectedStopPoint.Name}&line={NavigationContext.QueryString["line_name"]}", UriKind.RelativeOrAbsolute));
+        }
     }
 }

@@ -1,17 +1,22 @@
 ﻿<phone:PhoneApplicationPage
-    x:Class="onTime.DirectionPage"
+    x:Class="onTime.StopPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:onTime"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
+
+    <phone:PhoneApplicationPage.Resources>
+        <local:SecondsToHourConverter x:Key="SecondsToHourConverter"/>
+    </phone:PhoneApplicationPage.Resources>
 
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
@@ -20,36 +25,29 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="ONTIME" Style="{StaticResource PhoneTextNormalStyle}" FontFamily="Segoe WP Semibold" FontSize="22.667"/>
-            <TextBlock Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}">
-                line <Run x:Name="Line">X</Run>
-            </TextBlock>
+            <TextBlock Text="ONTIME" Style="{StaticResource PhoneTextNormalStyle}" FontSize="22.667" FontFamily="Segoe WP Semibold"/>
+            <TextBlock x:Name="StopNameTextBlock" Text="stop name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <TextBlock x:Name="LastStopTextBlock" Margin="10,0,0,0" Grid.Row="0" Visibility="Collapsed">
-                Direction: <Run x:Name="LastStop">yyy</Run>
-            </TextBlock>
-            <phone:LongListSelector x:Name="StopsListView" Grid.Row="1" SelectionChanged="StopsListView_SelectionChanged">
+            <phone:LongListSelector x:Name="DeparturesListView">
                 <phone:LongListSelector.ItemTemplate>
                     <DataTemplate>
-                        <Grid>
-                            <TextBlock Text="{Binding Name}" FontFamily="Segoe WP" FontSize="32" Margin="12,10,12,0"/>
+                        <Grid Margin="10,10,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="{Binding ScheduledDepartureSec, Converter={StaticResource SecondsToHourConverter}}" Grid.Column="0" VerticalAlignment="Center" FontSize="32"/>
+                            <StackPanel Grid.Column="1">
+
+                            </StackPanel>
                         </Grid>
                     </DataTemplate>
                 </phone:LongListSelector.ItemTemplate>
             </phone:LongListSelector>
         </Grid>
     </Grid>
-
-    <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar>
-            <shell:ApplicationBarIconButton IconUri="/Assets/AppBar/refresh.png" Text="change direction" Click="ChangeDirectionButton_Click"/>
-        </shell:ApplicationBar>
-    </phone:PhoneApplicationPage.ApplicationBar>
 
 </phone:PhoneApplicationPage>
