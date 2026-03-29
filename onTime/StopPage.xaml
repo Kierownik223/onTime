@@ -16,6 +16,7 @@
 
     <phone:PhoneApplicationPage.Resources>
         <local:SecondsToHourConverter x:Key="SecondsToHourConverter"/>
+        <local:SecondsToMinuteConverter x:Key="SecondsToMinuteConverter"/>
     </phone:PhoneApplicationPage.Resources>
 
     <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -30,22 +31,19 @@
         </StackPanel>
 
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <phone:LongListSelector x:Name="DeparturesListView">
+            <phone:LongListSelector x:Name="DeparturesListView" IsGroupingEnabled="True" GridCellSize="50,50" LayoutMode="Grid">
+                <phone:LongListSelector.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Hour}" FontSize="32" Margin="10,10,0,0"/>
+                    </DataTemplate>
+                </phone:LongListSelector.GroupHeaderTemplate>
+
                 <phone:LongListSelector.ItemTemplate>
                     <DataTemplate>
-                        <Grid Margin="10,10,0,0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-
-                            <TextBlock Text="{Binding ScheduledDepartureSec, Converter={StaticResource SecondsToHourConverter}}" Grid.Column="0" VerticalAlignment="Center" FontSize="32"/>
-                            <StackPanel Grid.Column="1">
-
-                            </StackPanel>
-                        </Grid>
+                        <TextBlock Text="{Binding ScheduledDepartureSec, Converter={StaticResource SecondsToMinuteConverter}}" FontSize="24" Margin="20,5,0,5"/>
                     </DataTemplate>
                 </phone:LongListSelector.ItemTemplate>
+
             </phone:LongListSelector>
         </Grid>
     </Grid>

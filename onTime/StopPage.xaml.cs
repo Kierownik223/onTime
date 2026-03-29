@@ -15,6 +15,7 @@ namespace onTime
     public partial class StopPage : PhoneApplicationPage
     {
         AtomicSchedule schedule;
+        List<Departure> departures;
         public StopPage()
         {
             InitializeComponent();
@@ -26,7 +27,16 @@ namespace onTime
 
             schedule = await AtomicSchedule.GetAtomicSchedule(NavigationContext.QueryString["symbol"], DateTime.UtcNow);
 
-            DeparturesListView.ItemsSource = schedule.LineSchedules[NavigationContext.QueryString["line"]].Departures;
+            departures = schedule.LineSchedules[NavigationContext.QueryString["line"]].Departures;
+
+            var grouped = departures
+                .GroupBy(d => TimeSpan.FromSeconds(d.ScheduledDepartureSec).Hours)
+                .Select(g => new DepartureGroup(
+                    g.Key.ToString("D2"),
+                    g.OrderBy(x => x.ScheduledDepartureSec)))
+                .ToList();
+
+            DeparturesListView.ItemsSource = grouped;
 
             base.OnNavigatedTo(e);
         }
