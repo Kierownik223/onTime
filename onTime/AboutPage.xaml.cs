@@ -8,6 +8,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Microsoft.Phone.Tasks;
+using System.Reflection;
 
 namespace onTime
 {
@@ -16,6 +17,11 @@ namespace onTime
         public AboutPage()
         {
             InitializeComponent();
+            var nameHelper = new AssemblyName(Assembly.GetExecutingAssembly().FullName);
+
+            var version = nameHelper.Version;
+
+            AppVersion.Text = version.Major + "." + version.Minor + "." + version.Build + "." + version.Revision;
         }
 
         private void ApplicationIcon_Tap(object sender, System.Windows.Input.GestureEventArgs e)

@@ -47,7 +47,9 @@
         </StackPanel>
 
         <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <TextBlock toolkit:TurnstileFeatherEffect.FeatheringIndex="2" x:Name="AppVersionLabel" HorizontalAlignment="Left" Text="Version N/A" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,0,0,0" FontSize="24"/>
+            <TextBlock toolkit:TurnstileFeatherEffect.FeatheringIndex="2" x:Name="AppVersionLabel" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,0,0,0" FontSize="24">
+                Version: <Run x:Name="AppVersion">N/A</Run>
+            </TextBlock>
             <TextBlock toolkit:TurnstileFeatherEffect.FeatheringIndex="3" HorizontalAlignment="Left" Text="App created by:" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,0,0,0"/>
             <Grid toolkit:TurnstileFeatherEffect.FeatheringIndex="4" Margin="10">
                 <Grid.ColumnDefinitions>
