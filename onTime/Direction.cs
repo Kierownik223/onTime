@@ -64,6 +64,10 @@ namespace onTime
             string responseText = await response.Content.ReadAsStringAsync();
             Direction direction = JsonConvert.DeserializeObject<Direction>(responseText);
 
+            int index = 0;
+            foreach (StopPoint stop in direction.StopPoints)
+                stop.FeatheringIndex = index++;
+
             return direction;
         }
     }
@@ -82,6 +86,7 @@ namespace onTime
         public bool OnRequest { get; set; }
         public bool GettingOut { get; set; }
         public List<StopPointValidity> StopPointValidity { get; set; }
+        public object FeatheringIndex { get; set; }
     }
 
     public class StopPointValidity

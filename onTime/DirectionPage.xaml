@@ -6,12 +6,34 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
+
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:TurnstileFeatherTransition Mode="BackwardIn" />
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:TurnstileFeatherTransition Mode="ForwardIn" />
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:TurnstileFeatherTransition Mode="BackwardOut" />
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:TurnstileFeatherTransition Mode="ForwardOut" />
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
 
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
@@ -20,8 +42,8 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="ONTIME" Style="{StaticResource PhoneTextNormalStyle}" FontFamily="Segoe WP Semibold" FontSize="22.667"/>
-            <TextBlock Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}">
+            <TextBlock toolkit:TurnstileFeatherEffect.FeatheringIndex="0" Text="ONTIME" Style="{StaticResource PhoneTextNormalStyle}" FontFamily="Segoe WP Semibold" FontSize="22.667"/>
+            <TextBlock toolkit:TurnstileFeatherEffect.FeatheringIndex="0" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}">
                 line <Run x:Name="Line">X</Run>
             </TextBlock>
         </StackPanel>
@@ -31,13 +53,13 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <TextBlock x:Name="LastStopTextBlock" Margin="10,0,0,0" Grid.Row="0" Visibility="Collapsed">
+            <TextBlock toolkit:TurnstileFeatherEffect.FeatheringIndex="0" x:Name="LastStopTextBlock" Margin="10,0,0,0" Grid.Row="0" Visibility="Collapsed">
                 Direction: <Run x:Name="LastStop">yyy</Run>
             </TextBlock>
             <phone:LongListSelector x:Name="StopsListView" Grid.Row="1" SelectionChanged="StopsListView_SelectionChanged">
                 <phone:LongListSelector.ItemTemplate>
                     <DataTemplate>
-                        <Grid>
+                        <Grid toolkit:TurnstileFeatherEffect.FeatheringIndex="{Binding FeatheringIndex}">
                             <TextBlock Text="{Binding Name}" FontFamily="Segoe WP" FontSize="32" Margin="12,10,12,0"/>
                         </Grid>
                     </DataTemplate>
