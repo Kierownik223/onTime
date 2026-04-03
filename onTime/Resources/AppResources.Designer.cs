@@ -70,11 +70,56 @@ namespace onTime.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ONTIME.
+        ///   Looks up a localized string similar to App created by:.
         /// </summary>
-        public static string ApplicationTitle {
+        public static string AppCreatedBy {
             get {
-                return ResourceManager.GetString("ApplicationTitle", resourceCulture);
+                return ResourceManager.GetString("AppCreatedBy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Application icon made by.
+        /// </summary>
+        public static string ApplicationIcon {
+            get {
+                return ResourceManager.GetString("ApplicationIcon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to change direction.
+        /// </summary>
+        public static string ChangeDirection {
+            get {
+                return ResourceManager.GetString("ChangeDirection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Direction.
+        /// </summary>
+        public static string Direction {
+            get {
+                return ResourceManager.GetString("Direction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to line.
+        /// </summary>
+        public static string Line {
+            get {
+                return ResourceManager.GetString("Line", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to lines.
+        /// </summary>
+        public static string Lines {
+            get {
+                return ResourceManager.GetString("Lines", resourceCulture);
             }
         }
         
@@ -93,6 +138,24 @@ namespace onTime.Resources {
         public static string ResourceLanguage {
             get {
                 return ResourceManager.GetString("ResourceLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to stops.
+        /// </summary>
+        public static string Stops {
+            get {
+                return ResourceManager.GetString("Stops", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Version.
+        /// </summary>
+        public static string Version {
+            get {
+                return ResourceManager.GetString("Version", resourceCulture);
             }
         }
     }

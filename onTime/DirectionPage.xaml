@@ -44,7 +44,7 @@
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
             <TextBlock toolkit:TurnstileFeatherEffect.FeatheringIndex="0" Text="ONTIME" Style="{StaticResource PhoneTextNormalStyle}" FontFamily="Segoe WP Semibold" FontSize="22.667"/>
             <TextBlock toolkit:TurnstileFeatherEffect.FeatheringIndex="0" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}">
-                line <Run x:Name="Line">X</Run>
+                <Run Text="{Binding Path=LocalizedResources.Line, Source={StaticResource LocalizedStrings}}"/><Run Text=" "/><Run x:Name="Line">X</Run>
             </TextBlock>
         </StackPanel>
 
@@ -54,7 +54,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <TextBlock toolkit:TurnstileFeatherEffect.FeatheringIndex="0" x:Name="LastStopTextBlock" Margin="10,0,0,0" Grid.Row="0" Visibility="Collapsed">
-                Direction: <Run x:Name="LastStop">yyy</Run>
+                <Run Text="{Binding Path=LocalizedResources.Direction, Source={StaticResource LocalizedStrings}}"/><Run Text=": "/><Run x:Name="LastStop">yyy</Run>
             </TextBlock>
             <phone:LongListSelector x:Name="StopsListView" Grid.Row="1" SelectionChanged="StopsListView_SelectionChanged">
                 <phone:LongListSelector.ItemTemplate>
@@ -67,11 +67,5 @@
             </phone:LongListSelector>
         </Grid>
     </Grid>
-
-    <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar>
-            <shell:ApplicationBarIconButton IconUri="/Assets/AppBar/refresh.png" Text="change direction" Click="ChangeDirectionButton_Click"/>
-        </shell:ApplicationBar>
-    </phone:PhoneApplicationPage.ApplicationBar>
 
 </phone:PhoneApplicationPage>

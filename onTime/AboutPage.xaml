@@ -43,14 +43,14 @@
 
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
             <TextBlock toolkit:TurnstileFeatherEffect.FeatheringIndex="0" Text="ONTIME" Style="{StaticResource PhoneTextNormalStyle}" FontFamily="Segoe WP Semibold" FontSize="22.667"/>
-            <TextBlock toolkit:TurnstileFeatherEffect.FeatheringIndex="1" Text="about" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock toolkit:TurnstileFeatherEffect.FeatheringIndex="1" Text="{Binding Path=LocalizedResources.AppBarAboutText, Source={StaticResource LocalizedStrings}}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <TextBlock toolkit:TurnstileFeatherEffect.FeatheringIndex="2" x:Name="AppVersionLabel" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,0,0,0" FontSize="24">
-                Version: <Run x:Name="AppVersion">N/A</Run>
+                <Run Text="{Binding Path=LocalizedResources.Version, Source={StaticResource LocalizedStrings}}"/>: <Run x:Name="AppVersion">N/A</Run>
             </TextBlock>
-            <TextBlock toolkit:TurnstileFeatherEffect.FeatheringIndex="3" HorizontalAlignment="Left" Text="App created by:" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,0,0,0"/>
+            <TextBlock toolkit:TurnstileFeatherEffect.FeatheringIndex="3" HorizontalAlignment="Left" Text="{Binding Path=LocalizedResources.AppCreatedBy, Source={StaticResource LocalizedStrings}}" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,0,0,0"/>
             <Grid toolkit:TurnstileFeatherEffect.FeatheringIndex="4" Margin="10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -60,7 +60,7 @@
                 <TextBlock Text="Kierownik223" FontSize="36" Foreground="{StaticResource PhoneAccentBrush}" Grid.Column="1" Margin="10,0,0,0" VerticalAlignment="Center"/>
             </Grid>
             <TextBlock toolkit:TurnstileFeatherEffect.FeatheringIndex="7" TextWrapping="Wrap" Margin="10,0" Tap="ApplicationIcon_Tap">
-                Application icon made by <Run Foreground="{StaticResource PhoneAccentBrush}">Merseyrail_508</Run>.
+                <Run Text="{Binding Path=LocalizedResources.ApplicationIcon, Source={StaticResource LocalizedStrings}}"/><Run Text=" "/><Run Foreground="{StaticResource PhoneAccentBrush}">Merseyrail_508</Run>.
             </TextBlock>
         </StackPanel>
     </Grid>

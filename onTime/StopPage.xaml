@@ -48,7 +48,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="ONTIME" Style="{StaticResource PhoneTextNormalStyle}" FontSize="22.667" FontFamily="Segoe WP Semibold"/>
+            <TextBlock Text="ONTIME" Style="{StaticResource PhoneTextNormalStyle}" FontFamily="Segoe WP Semibold" FontSize="22.667"/>
             <TextBlock x:Name="StopNameTextBlock" Text="stop name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 

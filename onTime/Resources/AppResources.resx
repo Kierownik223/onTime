@@ -125,10 +125,31 @@
     <value>en</value>
     <comment>Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</comment>
   </data>
-  <data name="ApplicationTitle" xml:space="preserve">
-    <value>ONTIME</value>
-  </data>
   <data name="AppBarAboutText" xml:space="preserve">
     <value>about</value>
+  </data>
+  <data name="AppCreatedBy" xml:space="preserve">
+    <value>App created by:</value>
+  </data>
+  <data name="ApplicationIcon" xml:space="preserve">
+    <value>Application icon made by</value>
+  </data>
+  <data name="ChangeDirection" xml:space="preserve">
+    <value>change direction</value>
+  </data>
+  <data name="Direction" xml:space="preserve">
+    <value>Direction</value>
+  </data>
+  <data name="Line" xml:space="preserve">
+    <value>line</value>
+  </data>
+  <data name="Lines" xml:space="preserve">
+    <value>lines</value>
+  </data>
+  <data name="Stops" xml:space="preserve">
+    <value>stops</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Version</value>
   </data>
 </root>

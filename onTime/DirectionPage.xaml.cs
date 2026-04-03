@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using onTime.Resources;
 
 namespace onTime
 {
@@ -17,6 +18,7 @@ namespace onTime
         public DirectionPage()
         {
             InitializeComponent();
+            BuildApplicationBar();
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -40,6 +42,16 @@ namespace onTime
             }
 
             base.OnNavigatedTo(e);
+        }
+
+        private void BuildApplicationBar()
+        {
+            ApplicationBar = new ApplicationBar();
+
+            ApplicationBarIconButton changeDirectionButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/refresh.png", UriKind.RelativeOrAbsolute));
+            changeDirectionButton.Text = AppResources.ChangeDirection;
+            changeDirectionButton.Click += ChangeDirectionButton_Click;
+            ApplicationBar.Buttons.Add(changeDirectionButton);
         }
 
         private void ChangeDirectionButton_Click(object sender, EventArgs e)

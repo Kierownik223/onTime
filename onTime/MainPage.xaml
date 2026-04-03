@@ -37,7 +37,7 @@
 
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <phone:Pivot Title="ONTIME">
-            <phone:PivotItem Header="lines">
+            <phone:PivotItem Header="{Binding Path=LocalizedResources.Lines, Source={StaticResource LocalizedStrings}}">
                 <phone:LongListSelector x:Name="LinesListView" LayoutMode="Grid" GridCellSize="145,145" Margin="10,0,-10,0" SelectionChanged="LinesListView_SelectionChanged">
                     <phone:LongListSelector.ItemTemplate>
                         <DataTemplate>
@@ -48,7 +48,7 @@
                     </phone:LongListSelector.ItemTemplate>
                 </phone:LongListSelector>
             </phone:PivotItem>
-            <phone:PivotItem Header="stops">
+            <phone:PivotItem Header="{Binding Path=LocalizedResources.Stops, Source={StaticResource LocalizedStrings}}">
                 <phone:LongListSelector x:Name="StopsListView">
                     <phone:LongListSelector.ItemTemplate>
                         <DataTemplate>
