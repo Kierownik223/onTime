@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace onTime
 {
-    // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
     public class Line
     {
         public int Id { get; set; }

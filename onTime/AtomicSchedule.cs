@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using onTime.Resources;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,7 +59,7 @@ namespace onTime
         {
             if (symbol == null)
             {
-                System.Windows.MessageBox.Show("Stop symbol cannot be empty!");
+                System.Windows.MessageBox.Show(AppResources.StopSymbolEmpty);
                 return null;
             }
 

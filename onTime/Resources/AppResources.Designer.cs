@@ -115,6 +115,15 @@ namespace onTime.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Line ID cannot be empty!.
+        /// </summary>
+        public static string LineIDEmpty {
+            get {
+                return ResourceManager.GetString("LineIDEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to lines.
         /// </summary>
         public static string Lines {
@@ -147,6 +156,15 @@ namespace onTime.Resources {
         public static string Stops {
             get {
                 return ResourceManager.GetString("Stops", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stop symbol cannot be empty!.
+        /// </summary>
+        public static string StopSymbolEmpty {
+            get {
+                return ResourceManager.GetString("StopSymbolEmpty", resourceCulture);
             }
         }
         
