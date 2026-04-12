@@ -50,7 +50,7 @@ namespace onTime
         public List<StopPoint> StopPoints { get; set; }
         public List<AltStopPoint> AltStopPoints { get; set; }
         public bool HasAnotherDirection { get; set; }
-        public static async Task<Direction> GetDirection(string lineId, bool thereDirection, string url = "https://rozklady.bielsko.pl/getDirection.json")
+        public static async Task<Direction> GetDirection(string lineId, bool thereDirection, string url = $"{MainPage.Current.CityBaseUrl}/getDirection.json")
         {
             if (lineId == null)
             {

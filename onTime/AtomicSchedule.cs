@@ -55,7 +55,7 @@ namespace onTime
         public object ScheduleDate { get; set; }
         public bool AutoLettersAssignment { get; set; }
         public bool MultipleLettersAssignment { get; set; }
-        public static async Task<AtomicSchedule> GetAtomicSchedule(string symbol, DateTime date, string url = "https://rozklady.bielsko.pl/getAtomicSchedule.json")
+        public static async Task<AtomicSchedule> GetAtomicSchedule(string symbol, DateTime date, string url = $"{MainPage.Current.CityBaseUrl}/getAtomicSchedule.json")
         {
             if (symbol == null)
             {

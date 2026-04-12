@@ -18,11 +18,21 @@ namespace onTime
     public partial class MainPage : PhoneApplicationPage
     {
         public HttpClient HttpClient;
+        public string CityBaseUrl = "https://rozklady.bielsko.pl";
         public static MainPage Current;
 
         public MainPage()
         {
             InitializeComponent();
+
+            if (IsolatedStorageSettings.ApplicationSettings.Contains("city_base_url"))
+            {
+                CityBaseUrl = IsolatedStorageSettings.ApplicationSettings["city_base_url"] as string;
+            }
+            else
+            {
+                // TODO: Bring user to city selection page
+            }
 
             HttpClient = new HttpClient();
 

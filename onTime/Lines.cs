@@ -25,7 +25,7 @@ namespace onTime
     public class Lines
     {
         public List<Line> lines { get; set; }
-        public static async Task<List<Line>> GetLines(string url = "https://rozklady.bielsko.pl/getLines.json?")
+        public static async Task<List<Line>> GetLines(string url = $"{MainPage.Current.CityBaseUrl}/getLines.json?")
         {
             var response = await MainPage.Current.HttpClient.GetAsync(url);            
             if (!response.IsSuccessStatusCode)
